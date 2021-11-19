@@ -1,0 +1,17 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://weather.com/weather/tenday/l/ca56f3612e83373c0833df5a107e37a43550a3d5fec6055758a8120409026b9d"
+req = requests.get(url)
+soup = BeautifulSoup(req.text, "html.parser")
+
+print(soup.title.text)
+
+temp = soup.find_all('span', attrs={'class': 'DailyContent--temp--3d4dn'})
+print(temp[0].text)
+print(temp[1].text)
+print(temp[2].text)
+print(temp[3].text)
+print(temp[4].text)
+print(temp[5].text)
+print(temp[6].text)
